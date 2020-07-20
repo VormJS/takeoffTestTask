@@ -1,0 +1,36 @@
+<div class="login-form">
+  <mat-card>
+    <mat-card-title class="login-component">Log in</mat-card-title>
+    <mat-card-subtitle class="login-component">
+      You have to be logged in for getting access to your contacts
+    </mat-card-subtitle>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-card-content>
+        <!-- Email -->
+        <mat-form-field appearance="fill" class="login-component">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="user@example.com" formControlName="email" required>
+          <mat-error *ngIf="hasError('email', 'required')">Can't be empty</mat-error>
+          <mat-error *ngIf="hasError('email', 'email')">Must be valid email</mat-error>
+        </mat-form-field>
+        <br>
+
+        <!-- Password -->
+        <mat-form-field appearance="fill" class="login-component">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="hasError('password', 'required')">Can't be empty</mat-error>
+        </mat-form-field>
+        <br>
+      </mat-card-content>
+
+      <button mat-raised-button class="login-button" type="submit" [disabled]="!loginForm.valid" color="primary">
+        Log in
+      </button>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,7 @@
+<mat-toolbar color="primary">
+  <span>Contact list</span>
+  <span class="nav-spacer"></span>
+  <button mat-raised-button color="primary" *ngIf="isLoggedIn" (click)="logout()">
+    Log out
+  </button>
+</mat-toolbar>
