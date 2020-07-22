@@ -10,3 +10,6 @@ contact list features:
 * Search contacts
 
 made with Angular Material (https://material.angular.io/)
+
+Thanks to Jason Watmore for great example with auth/fake backend part
+(https://jasonwatmore.com/post/2020/07/09/angular-10-jwt-authentication-example-tutorial#jwt-interceptor-ts)

@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
+import { fakeBackendProvider } from './helpers/fake-backend';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

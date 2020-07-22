@@ -37,8 +37,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.value)
-
     this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
       .pipe(first())
       .subscribe(
@@ -46,8 +44,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['']);
         },
         error => {
-          this._snackBar.open(error.message, 'ok', {
-            duration: 3000
+          console.log(error)
+          this._snackBar.open(error.message, '❌', {
+            duration: 3000,
+            verticalPosition: 'top'
           })
         });
   }
