@@ -1,1 +1,13 @@
-<p>contact-list works!</p>
+<div class="contacts-container">
+
+  <mat-card class="contact-card" *ngFor="let contact of contacts$ | async">
+    <mat-card-title>
+      {{ contact.firstName }} {{ contact.lastName}}
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <br>
+    <span> Email: {{ contact.email }} </span><br>
+    <span> Phone: {{ contact.phone }} </span><br>
+    <span> Other: {{ contact.other }} </span><br>
+  </mat-card>
+</div>

@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+
 import { User } from '../models/user';
+import { Contact } from '../models/contact';
 
 // pseudo DB: users
 const usersPreset: User[] = [
@@ -26,12 +28,39 @@ const usersPreset: User[] = [
 ]
 let users = JSON.parse(localStorage.getItem('fb_users')) || usersPreset;
 // pseudo DB: contacts
-let contacts = JSON.parse(localStorage.getItem('fb_contacts')) || [];
+const contactsPreset: Contact[] = [
+  {
+    id: 100,
+    userID: 1,
+    firstName: 'test',
+    lastName: '1',
+    email: 'test1@mail.com',
+    phone: '+7 123 321 11 11',
+    other: 'VK: vk.com/id1'
+  },{
+    id: 300,
+    userID: 3,
+    firstName: 'test',
+    lastName: '1',
+    email: 'test1@mail.com',
+    phone: '+7 123 321 11 11',
+    other: 'VK: vk.com/id1'
+  },{
+    id: 301,
+    userID: 3,
+    firstName: 'test',
+    lastName: '2',
+    email: 'test2@mail.com',
+    phone: '+7 123 321 11 11',
+    other: 'VK: vk.com/id2'
+  }
+]
+let contacts = JSON.parse(localStorage.getItem('fb_contacts')) || contactsPreset;
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const { url, method, headers, body } = request;
+    const { url, method, headers, body, params } = request;
 
     // wrap in delayed observable to simulate server api call
     return of(null)
@@ -44,7 +73,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       switch (true) {
         case url.endsWith('/login') && method === 'POST':
           return authenticate();
-        
+        case url.includes('/contacts') && method === 'GET':
+          return getUserContacts();
         default:
           return next.handle(request);
       }
@@ -61,7 +91,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         email: user.email,
         name: user.name,
         token: 'fake-jwt-token-' + user.id
-      })
+      });
+    }
+    function getUserContacts(){
+      if (!isLoggedIn()) return unauthorized();
+      const userContacts = contacts.filter((contact: Contact) => contact.userID === Number(params.get('user_id')));
+      return ok(userContacts);
     }
 
     // helper functions
@@ -72,6 +107,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     function error(message: string) {
       return throwError({ message });
+    }
+
+    function unauthorized() {
+      return throwError({ status: 401, error: { message: 'Unauthorised' } });
+    }
+
+    function isLoggedIn() {
+      return headers.get('Authorization').startsWith('Bearer fake-jwt-token');
     }
   }
 }

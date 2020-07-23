@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 // import { MatSelectModule } from '@angular/material/select';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
 
 const modules = [
   MatToolbarModule,
@@ -24,7 +25,8 @@ const modules = [
   MatInputModule,
   // MatSelectModule,
   // MatProgressSpinnerModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatDividerModule
 ]
 
 @NgModule({

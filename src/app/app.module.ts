@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MaterialModule } from './material.module';
 
@@ -13,6 +13,7 @@ import { ContactListComponent } from './components/contact-list/contact-list.com
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 import { fakeBackendProvider } from './helpers/fake-backend';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { fakeBackendProvider } from './helpers/fake-backend';
     HttpClientModule
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     fakeBackendProvider
   ],
   bootstrap: [AppComponent]
