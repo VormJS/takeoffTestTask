@@ -1,0 +1,21 @@
+.contact-form {
+  width: 33vw
+}
+.form-component {
+  width: 100%
+}
+.form-actions {
+  justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+  .contact-form {
+    width: 50vw
+  }
+}
+@media (max-width: 550px) {
+  .contact-form {
+    width: 85vw;
+    max-width: 100%
+  }
+}

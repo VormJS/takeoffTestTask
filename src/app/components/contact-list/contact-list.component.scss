@@ -5,7 +5,49 @@
   flex-flow: wrap;
   align-items: baseline;
 }
+.contacts-container::after {
+  content: "";
+  flex-basis: calc(28% + 2*16px);
+}
 .contact-card {
   flex-basis: 28%;
   margin: 0 0 25px 0;
+}
+.add-button-container {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  align-self: center;
+}
+.add-button {
+  background-color: transparent;
+  transform: scale(1.8);
+}
+.title-container {
+  display: flex;
+  align-items: center;
+}
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 900px) {
+  .contacts-container {
+    padding: 20px;
+  }
+  .contact-card {
+    flex-basis: 42%;
+    margin: 0 0 20px 0;
+  }
+}
+@media (max-width: 550px) {
+  .contacts-container {
+    padding: 15px;
+  }
+  .contact-card {
+    flex-basis: 95%;
+    margin: 0 0 15px 0;
+  }
 }

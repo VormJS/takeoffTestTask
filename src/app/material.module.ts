@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 // import { MatListModule } from '@angular/material/list';
 // import { MatCheckboxModule } from '@angular/material/checkbox';
-// import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 // import { MatSelectModule } from '@angular/material/select';
@@ -20,7 +20,7 @@ const modules = [
   MatCardModule,
   // MatListModule,
   // MatCheckboxModule,
-  // MatDialogModule,
+  MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
   // MatSelectModule,

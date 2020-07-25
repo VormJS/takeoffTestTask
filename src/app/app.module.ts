@@ -14,6 +14,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 import { fakeBackendProvider } from './helpers/fake-backend';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { DeleteDialogComponent } from './components/contact-list/delete-dialog/delete-dialog.component';
+import { ContactFormComponent } from './components/contact-list/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     LoginComponent,
     ContactListComponent,
     ToolbarComponent,
+    DeleteDialogComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,12 +2,30 @@
 
   <mat-card class="contact-card" *ngFor="let contact of contacts$ | async">
     <mat-card-title>
-      {{ contact.firstName }} {{ contact.lastName}}
+      <div class="title-container">
+        <span>
+          {{ contact.firstName }} {{ contact.lastName}}
+        </span>
+        <div class="flex-spacer"></div>
+        <button mat-icon-button aria-label="edit icon" (click)="editContact(contact)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="delete icon" (click)="deleteContact(contact)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </mat-card-title>
+
     <mat-divider></mat-divider>
     <br>
     <span> Email: {{ contact.email }} </span><br>
     <span> Phone: {{ contact.phone }} </span><br>
     <span> Other: {{ contact.other }} </span><br>
   </mat-card>
+
+  <div class="contact-card add-button-container">
+    <button mat-fab aria-label="Add icon" class="add-button" (click)="createContact()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 </div>
