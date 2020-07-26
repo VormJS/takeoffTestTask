@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,13 +11,12 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "~9.1.9",
-    "@angular/compiler-cli": "~9.1.11",
-    "typescript": "~3.8.3",
     "@angular/animations": "~9.1.11",
     "@angular/cdk": "^9.2.4",
+    "@angular/cli": "~9.1.9",
     "@angular/common": "~9.1.11",
     "@angular/compiler": "~9.1.11",
+    "@angular/compiler-cli": "~9.1.11",
     "@angular/core": "~9.1.11",
     "@angular/forms": "~9.1.11",
     "@angular/material": "^9.2.4",
@@ -25,8 +24,10 @@
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
     "angular2-jwt": "^0.2.3",
+    "express": "^4.17.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "typescript": "~3.8.3",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
