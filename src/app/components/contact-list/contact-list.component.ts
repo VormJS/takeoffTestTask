@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Contact } from 'src/app/models/contact';
@@ -14,7 +14,8 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.scss']
+  styleUrls: ['./contact-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactListComponent implements OnInit, OnDestroy {
 

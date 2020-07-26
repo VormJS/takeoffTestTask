@@ -62,7 +62,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     function createContact() {
       if (!isLoggedIn()) return unauthorized();
       const contact = JSON.parse(body);
-      contact.id = Math.max(...contacts.map((c: Contact) => c.id))
+      contact.id = Math.max(...contacts.map((c: Contact) => c.id)) + 1
       contacts.push(contact)
       return ok(contact)
     }
