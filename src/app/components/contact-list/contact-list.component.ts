@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-list',
@@ -17,7 +18,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 })
 export class ContactListComponent implements OnInit, OnDestroy {
 
-  contacts$: Observable<Contact[]>
+  contacts$: Observable<Contact[]>;
+  filterValue = new FormControl('');
 
   constructor(
     private dialog: MatDialog,
@@ -28,7 +30,6 @@ export class ContactListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.contacts$ = this.dataStorageService.contacts
     this.dataStorageService.getUserContacts()
-    // this.dataStorageService.contacts.subscribe()
   }
   ngOnDestroy(): void {
     this.dataStorageService.clearStorage()

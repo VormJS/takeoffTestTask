@@ -13,3 +13,8 @@ made with Angular Material (https://material.angular.io/)
 
 Thanks to Jason Watmore for great example with auth/fake backend part
 (https://jasonwatmore.com/post/2020/07/09/angular-10-jwt-authentication-example-tutorial#jwt-interceptor-ts)
+
+For login use one of this(login/pass):
+* admin@mail.com / adminpass
+* user@mail.com / userpass
+* 2@2 / 2

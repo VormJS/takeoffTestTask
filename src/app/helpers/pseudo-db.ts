@@ -106,7 +106,7 @@ export const contactsPreset: Contact[] = [
     userID: 3,
     firstName: 'test',
     lastName: '4',
-    email: 'test3@mail.com',
+    email: 'test4@mail.com',
     phone: '+7 123 321 11 11',
     other: 'VK: vk.com/id4'
   }

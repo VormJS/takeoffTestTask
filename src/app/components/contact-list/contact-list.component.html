@@ -1,6 +1,17 @@
-<div class="contacts-container">
+<mat-form-field class="search-field" appearance="outline">
+  <mat-label>Search contact</mat-label>
+  <span matPrefix>
+    <mat-icon matSuffix>search</mat-icon> &nbsp;
+  </span>
+  <input matInput type="search" [formControl]="filterValue">
+  <button mat-button *ngIf="filterValue.value" matSuffix mat-icon-button aria-label="Clear"
+    (click)="filterValue.setValue('')">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
 
-  <mat-card class="contact-card" *ngFor="let contact of contacts$ | async">
+<div class="contacts-container">
+  <mat-card class="contact-card" *ngFor="let contact of contacts$ | async | filter: filterValue.value">
     <mat-card-title>
       <div class="title-container">
         <span>

@@ -32,6 +32,12 @@
 .flex-spacer {
   flex: 1 1 auto;
 }
+.search-field{
+  width: 33vw;
+  display: block;
+  margin: auto;
+  padding-top: 15px;
+}
 
 @media (max-width: 900px) {
   .contacts-container {
